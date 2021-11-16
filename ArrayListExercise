@@ -1,0 +1,73 @@
+//Task 1. Define a function that takes 2 parameters of type int and returns an ArrayList 
+//        containing a given number of random integers between 1 and a given upper bound.
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Collections; //for use in task 2
+
+public class SampleArrayList
+{
+    int numRandInt;
+    ArrayList<Integer> numbers = new ArrayList<>();
+    Random random = new Random();
+    
+    /**
+     * Constructor for objects of class SampleArrayList
+     */
+    public SampleArrayList()
+    {
+        // initialise instance variables
+        //left blank as unnecessary for this example.
+    }
+    
+    /**
+     * Takes 2 parameters of type int and returns an ArrayList containing 
+     * a given number of random integers between 1 and a given upper bound.
+     */
+    public ArrayList<Integer> createRandomList(int numRandInt, int upperBound)
+    //returns an ArrayList of integers, method creates list using parameters (from user = given)
+    //numberRandomIntegers and upperBound 
+    {
+        for(int i = 0; i < numRandInt; i++) {   //for iterations up to user defined number of random ints
+            numbers.add(random.nextInt(upperBound));    //random numbers generated up to user defined max value (upperBound)
+        }
+        return numbers;        //requires return function as it was declared at start of method header
+    }
+    
+    //Alternatively another random method to use is the Math.random function:
+    // public ArrayList<Integer> listOfRandomIntegers(int noRandomIntegers, int upperBound) 
+    // {
+        // ArrayList<Integer> numbers = new ArrayList<Integer>();
+        // Random random = new Random();
+        // for(int i = 0; i < noRandomIntegers; i++) {
+            // int randomInt = (int) (Math.random() * upperBound);
+            // numbers.add(randomInt);
+            // System.out.println(randomInt);
+        // }
+        // return numbers;
+    // }
+
+//Task 2. Write Java code to create an ArrayList containing 20 random numbers between 1 and 100 (inclusive) using 
+//        the function defined in Task 1 and then print out all the numbers in an ascending order.
+
+//Simply generate the defined array list using previous method and use following print methods:
+
+    /**
+     * Print out numbers in ArrayList.
+     */
+    public void printArrayList()
+    {
+        System.out.println("Original Array: ");  //i.e. unsorted array of generated random ints for testing comparison
+        System.out.println(numbers);
+    }
+    
+    /**
+     * Print out numbers in ArrayList in ascending order.
+     */
+    public void printAscendingOrder()
+    {
+        Collections.sort(numbers);   //Have to import Collections API as ArrayList doesn't contain a good sort function
+        System.out.println("Sorted Array: ");
+        System.out.println(numbers);
+    }
+}
