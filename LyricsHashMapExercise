@@ -1,0 +1,95 @@
+// Part of the lyrics of “Sing a Song” by The Carpenters is stored in the string lyrics below:
+// String lyrics = "Sing, sing a song/Let the world sing along/" +
+// "Sing of love there could be/Sing for you and for me/" +
+// "Sing, sing a song/Make it simple to last/" +
+// "Your whole life long/Don't worry that it's not/" +
+// "Good enough for anyone/Else to hear/" +
+// "Just sing, sing a song";
+// Write the Java code to
+// a) Find out the total number of words in lyrics.
+//Hint: Use the methods of String class to replace ‘/’ with a space, remove any punctuations 
+//and extra spaces before splitting lyrics with white space as delimiter.
+//b) Calculate the frequency of each unique word in lyrics and then print out the words and their 
+//frequencies that occur more than once. (Note: Words are not case sensitive, i.e. “Sing” and “sing” are the same.)
+//Hint: Use a HashMap<String, Integer> to store the frequency of each word, i.e. the number of times the word occurs in lyrics.
+//c) Print out the words that occurs the most in lyrics.
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Collections;
+
+public class LyricsHashMap
+{
+    private String lyrics = "Sing, sing a song/Let the world sing along/" +     //Initialising in field to tidy up constructor/methods later.
+        "Sing of love there could be/Sing for you and for me/" +
+        "Sing, sing a song/Make it simple to last/" +
+        "Your whole life long/Don't worry that it's not/" +
+        "Good enough for anyone/Else to hear/" +
+        "Just sing, sing a song";
+    private HashMap <String, Integer> hashMap;
+    private String s3;
+    
+    /**
+     * Constructor for objects of class LyricsHashMap
+     */
+    public LyricsHashMap()
+    {
+        s3 = lyrics.replace("/"," ").replace(",", "").toLowerCase();    //leaving in constructor for ease of use, reformats whole string to separate words.
+        hashMap = new HashMap<>();     //planning to store word as key and frequency count as value.
+    }
+    
+    /**
+     * Print formatted version of the lyrics.    //basic print function for comparison later.
+     */
+    private void formattedLyrics()
+    {
+        System.out.println(s3);
+    }
+    
+    /**
+     * Print word count of the formatted lyrics using a HashMap.    
+     */
+    private void wordCount()
+    {
+        String[] words = s3.split(" ");      //seperates words at blank spaces " " as edited earlier.
+        System.out.println("Word count: " + words.length);
+    }
+    
+    private void setHashMap() {
+        String[] words = s3.split(" ");
+        for (String word : words) {
+            Integer integer = hashMap.get(word);    //As nothing placed in hashmap yet, constructor default key+values for String should come back null.
+            if (integer == null)                    //nullpointexception averted, technically could also use getOrDefault method instead as well.
+                hashMap.put(word, 1);
+            else {
+                hashMap.put(word, integer + 1);     //integer is just a frequency counter, could have named "Integer frequency" or "int integer" as well.
+            }
+        }
+        System.out.println(hashMap);
+    }
+    
+    /**
+     * Print frequency of each word of the formatted lyrics using a HashMap.
+     */
+    private void wordFrequency()
+    {
+        for (String eachWord : hashMap.keySet()) {       //for "each key : keys" basically since hashmap should be filled by prior methods.
+            if (hashMap.get(eachWord) > 1) {          //question asked for words occuring more than once. If each value (frequency) is > 1.
+                System.out.println("The word <" + eachWord + "> occurs " + hashMap.get(eachWord) + " times.");   //.get(key) method returns value.
+            }
+        }
+    }
+    
+    /**
+     * Print most common word from lyrics.
+     */
+    private void mostFrequentWord()
+    {
+        int max = Collections.max(hashMap.values());     //have to use a different util function to access max value from hashmap. 
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {    //"for each entry : entries", .entrySet() returns a set having same elements as the hash map
+            if(entry.getValue() == max) {
+                System.out.println("The most frequent word is: " + entry.getKey());   
+            }
+        }
+    }
+}
