@@ -1,0 +1,48 @@
+//The ranks, suits and deck are defined below:
+//String[] suits = {"Club","Diamond","Heart","Spade"};
+//String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+//String[] deck = new String[52];
+//a) Populate the deck with 52 cards of different suits and ranks, e.g. “Club 3”, “Spade A”.
+//b) Write a method to shuffle the cards in the deck, i.e. put the cards in a random order.
+
+public class DeckArray
+{
+    String[] suits = {"Club","Diamond","Heart","Spade"};
+    String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+    String[] deck = new String[52];
+    
+    /**
+     * Constructor for a DeckArray of 52 cards.
+     */
+    public DeckArray()
+    {
+        // initialise instance variables
+        for (int i = 0; i < ranks.length; i++) {
+            for (int j = 0; j < suits.length; j++) {     //nested loop so works through suits into ranks.
+                deck[suits.length * i + j] = ranks[i] + " of " + suits[j]; 
+            }
+        }
+    }
+    
+    /**
+     * Print a deck with 52 cards.
+     */
+    public void printDeck ()
+    {
+        for (int i = 0; i < n; i++) {
+            System.out.println(deck[i]);
+        }
+    }
+    
+    /**
+     * Shuffle the deck using random.
+     */
+    public void shuffleDeck ()
+    {
+        for (int i = 0; i < n; i++) {
+            int r = i + (int) (Math.random() * (n-i));   //Math.random easier random function to implement in this scenario.
+            String shuffledDeck = deck[r];   //String local variable = random generated card in deck.
+            deck[r] = deck[i];      //Randomly generated card from deck replaces the [i] card in original deck (first card in this iteration).
+            deck[i] = shuffledDeck;   //deck[i] stored back into shuffledDeck = deck[r].
+        }
+    }
