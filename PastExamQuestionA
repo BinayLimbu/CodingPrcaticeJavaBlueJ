@@ -1,0 +1,5 @@
+//The class TicketMachine provides objects that control automated ticket machines. The class has the following methods of relevance to this question:
+//• public int getPrice() returns the price of tickets supplied by the machine.
+//• public int getTotal() returns the total amount of money received by a machine.
+//• public void resetTotal() clears the total amount of money received by a machine.
+//You should not write the TicketMachine class.
