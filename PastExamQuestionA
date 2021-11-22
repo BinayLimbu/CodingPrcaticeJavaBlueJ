@@ -36,5 +36,14 @@ public class MachineCollection
     {
         collection.add(tm);
     }
+    
+    /**
+    * Returns the number of machines in the collection.
+    */
+    public int numberofMachines()
+    {
+        return collection.size();
+    }
+
 
 
