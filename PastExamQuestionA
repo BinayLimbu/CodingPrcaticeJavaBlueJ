@@ -21,3 +21,11 @@ public class MachineCollection
 {
     private ArrayList<TicketMachine> collection;
     
+    /**
+    * Constructor for objects of class MachineCollection
+    */
+    public MachineCollection()
+    {
+        collection = new ArrayList<TicketMachine>();
+    }
+
