@@ -1,7 +1,12 @@
 //Define a method that takes an owner’s name and prints the names of all dogs owned by the given owner.
 
 public void printDogsOwnedBy(String owner) {  //"given" is keyword in questions for "requires user-defined parameter"
-for (Dog d: dogs) {
+for (Dog d: dogs) 
+{
       if (d.getOwner().equals(owner) ) {
          System.out.println(d.getName());
-     
+      }
+     else {
+         System.out.println("No dog found for: " + owner);
+   }
+}
