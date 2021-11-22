@@ -19,3 +19,5 @@ import java.util.Iterator;
 
 public class MachineCollection
 {
+    private ArrayList<TicketMachine> collection;
+    
