@@ -67,13 +67,15 @@ public class MachineCollection
      */
     public int clearMachines(int minimumPrice)
     {
-        Iterator<TicketMachine> it = cm.iterator ();
+        int count = 0;
+        Iterator<TicketMachine> it = collection.iterator();
         while(it.hasNext()) {
-            TicketMachine i = it.next();
-            if (i.getPrice() < minimumPrice) {
+            TicketMachine tm = it.next();
+            if (tm.getPrice() < minimumPrice) {
                 it.remove();
+                count++;
             }
         }
-        System.out.println(cm);
+        return count;
     }    
 }
