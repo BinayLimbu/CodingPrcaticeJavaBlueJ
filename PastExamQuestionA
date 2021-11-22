@@ -13,3 +13,9 @@
 //The number of machines removed is returned by the method.
 
 //Write the MachineCollection class in full.
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class MachineCollection
+{
