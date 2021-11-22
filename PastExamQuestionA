@@ -3,3 +3,11 @@
 //• public int getTotal() returns the total amount of money received by a machine.
 //• public void resetTotal() clears the total amount of money received by a machine.
 //You should not write the TicketMachine class.
+
+//The MachineCollection class uses an ArrayList to store TicketMachine objects. The MachineCollection class has the following methods:
+//• public void add(TicketMachine tm) stores the given machine to the collection.
+//• public int numberOfMachines() returns the number of machines in the collection.
+//• public int collectMoney() returns the total amount of money held in all the machines in the collection. 
+//In addition, it clears the total stored in each machine. Therefore, once this method has completed, the total in all the machines in the collection would be zero.
+//• public int clearMachines(int minimumPrice) removes all machines from the collection whose price is below the minimumPrice parameter. 
+//The number of machines removed is returned by the method.
