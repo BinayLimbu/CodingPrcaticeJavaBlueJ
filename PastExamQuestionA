@@ -44,6 +44,21 @@ public class MachineCollection
     {
         return collection.size();
     }
+      
+    /**
+    * Returns the total amount of money held in all the machines in the collection. In addition,
+    * it clears the total stored in each machine. Therefore, once 
+    * this method has completed, the total in all the machines in the collection would be zero.
+    */
+    public int collectMoney()
+    {
+        Int sum = 0;
+        for (TicketMachine machine : collection) {
+            sum += tm.getTotal();
+            tm.resetTotal();
+        }
+        return sum;
+    }
 
 
-
+    
