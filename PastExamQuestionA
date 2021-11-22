@@ -28,4 +28,13 @@ public class MachineCollection
     {
         collection = new ArrayList<TicketMachine>();
     }
+    
+    /**
+    * Stores the given machine to the collection.
+    */
+    public void add(TicketMachine tm)
+    {
+        collection.add(tm);
+    }
+
 
