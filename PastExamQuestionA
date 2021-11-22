@@ -60,5 +60,20 @@ public class MachineCollection
         return sum;
     }
 
-
-    
+    /**
+     * Removes all machines from the collection whose price 
+     * is below the minimumPrice parameter. The number of 
+     * machines removed is returned by the method.
+     */
+    public int clearMachines(int minimumPrice)
+    {
+        Iterator<TicketMachine> it = cm.iterator ();
+        while(it.hasNext()) {
+            TicketMachine i = it.next();
+            if (i.getPrice() < minimumPrice) {
+                it.remove();
+            }
+        }
+        System.out.println(cm);
+    }    
+}
