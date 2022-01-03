@@ -1,2 +1,2 @@
-# CodingPrcaticeJavaBlueJ
+# CodingPracticeJavaBlueJ
 Learning Java using BlueJ
